@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Python入门教程</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .sidebar {
+            width: 220px;
+            padding: 20px;
+            border-right: 1px solid #eee;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .nav {
+            list-style: none;
+            padding: 0;
+        }
+        .nav a {
+            display: block;
+            padding: 10px;
+            color: #3498db;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .nav a:hover {
+            background-color: #f8f9fa;
+        }
+        .nav .active {
+            background-color: #3498db;
+            color: white;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f8;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>教程目录</h2>
+            <ul class="nav">
+                <li><a href="#intro" class="active">简介</a></li>
+                <li><a href="#setup">环境搭建</a></li>
+                <li><a href="#syntax">基础语法</a></li>
+                <li><a href="#data">数据类型</a></li>
+                <li><a href="#control">流程控制</a></li>
+                <li><a href="#function">函数</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <header>
+                <h1>Python入门教程</h1>
+            </header>
+
+            <section id="intro">
+                <h2>1. Python简介</h2>
+                <p>Python是一种解释型、面向对象、动态数据类型的高级程序设计语言。</p>
+                <p>特点：</p>
+                <ul>
+                    <li>简单易学</li>
+                    <li>免费开源</li>
+                    <li>跨平台</li>
+                    <li>丰富的库</li>
+                </ul>
+            </section>
+
+            <section id="setup">
+                <h2>2. 环境搭建</h2>
+                <p>下载地址：<a href="https://www.python.org/downloads/" target="_blank">python.org</a></p>
+                <p>验证安装：</p>
+                <pre>python --version</pre>
+            </section>
+
+            <section id="syntax">
+                <h2>3. 基础语法</h2>
+                <p>第一个Python程序：</p>
+                <pre>print("Hello, World!")</pre>
+            </section>
+
+            <section id="data">
+                <h2>4. 数据类型</h2>
+                <p>常用数据类型：</p>
+                <pre>
+# 数字
+a = 10
+b = 3.14
+
+# 字符串
+s = "Python"
+
+# 列表
+list = [1, 2, 3]
+
+# 字典
+dict = {"name": "Alice", "age": 25}
+                </pre>
+            </section>
+
+            <section id="control">
+                <h2>5. 流程控制</h2>
+                <p>if语句：</p>
+                <pre>
+age = 18
+if age >= 18:
+    print("成年人")
+else:
+    print("未成年人")
+                </pre>
+
+                <p>for循环：</p>
+                <pre>
+for i in range(5):
+    print(i)
+                </pre>
+            </section>
+
+            <section id="function">
+                <h2>6. 函数</h2>
+                <p>定义函数：</p>
+                <pre>
+def add(a, b):
+    return a + b
+
+print(add(3, 5))  # 输出8
+                </pre>
+            </section>
+
+            <footer>
+                <p>&copy; 2023 Python教程 | 作者：王淳濠</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // 侧边栏导航高亮
+        document.querySelectorAll('.nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                document.querySelectorAll('.nav a').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+<script>
+    // 修改后的导航高亮脚本
+    document.querySelectorAll('.nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault(); // 阻止默认锚点跳转
+
+            // 1. 移除所有激活状态
+            document.querySelectorAll('.nav a').forEach(link => link.classList.remove('active'));
+
+            // 2. 设置当前链接为激活状态
+            this.classList.add('active');
+
+            // 3. 平滑滚动到目标区域
+            const targetId = this.getAttribute('href').substring(1);
+            document.getElementById(targetId).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+</script>
+</body>
+</html>
